@@ -30,7 +30,7 @@ with open(pdf_path, "rb") as f:
     )
 # st.markdown("""---""")
 
-designation = st.selectbox("Designation",
+designation = st.selectbox("Select your Designation",
                            ["Territory officer", "Area Head", "Deputy RSM", "RSM", "Part Head"])
 
 # Number of territories supervised
@@ -86,7 +86,7 @@ with st.expander("🔧 Enter Input Details", expanded=True):
                 f"Credit Note Units - ", min_value=0, value=0, key=f"credit_{i}")
 
 # --- Results
-st.subheader("📊 Incentive Summary")
+st.subheader("Incentive Summary")
 
 total_final_incentive = 0
 for i in range(num_territories):
