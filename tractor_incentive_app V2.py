@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 from streamlit_extras.metric_cards import style_metric_cards
 
-import os
-import base64
+# import os
+# import base64
 
 # from local_modules
 from congratsAnimation import animate_confetti
@@ -16,23 +16,19 @@ st.title("🚜 Tractor Incentive Calculator - May 2025")
 
 st.markdown("""
 ### Incentive Period: **1 May to 31 May 2025**
----
-""")
-
+---""")
 
 # Path to your PDF inside the resources folder
 pdf_path = "resources/Sales_Team_Incentive_May2025.pdf"
 
-# Check if file exists to avoid error
-if os.path.exists(pdf_path):
-    with open(pdf_path, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-
-    href = f'<a href="data:application/pdf;base64,{base64_pdf}" target="_blank">📄 Click here to view the Incentive Circular (PDF)</a>'
-    st.markdown(href, unsafe_allow_html=True)
-else:
-    st.warning("PDF file not found. Please check the path.")
-
+with open(pdf_path, "rb") as f:
+    st.download_button(
+        label="📥 Download Incentive Circular (PDF)",
+        data=f,
+        file_name="Sales_Team_Incentive_May2025.pdf",
+        mime="application/pdf"
+    )
+# st.markdown("""---""")
 
 designation = st.selectbox("Designation",
                            ["Territory officer", "Area Head", "Deputy RSM", "RSM", "Part Head"])
@@ -44,7 +40,7 @@ if designation != "Territory officer":
         "Number of Territories Supervised", min_value=1, value=1)
 
 # --- Inputs
-st.subheader("📥 Basic Inputs")
+st.subheader("Basic Inputs")
 with st.expander("🔧 Enter Input Details", expanded=True):
     for i in range(num_territories):
         st.markdown(f"### Territory {i+1}")
