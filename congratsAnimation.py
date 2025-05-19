@@ -17,6 +17,8 @@ def animate_confetti(final_incentive):
                     <h1 style='font-size: 48px; color: #4CAF50; margin-bottom: 10px;'>🎉 Congratulations! 🎉</h1>
                     <h2 style='font-size: 32px; color: #444;'>Your Incentive:</h2>
                     <h2 style='font-size: 36px; color: green; font-weight: bold;'>৳ {final_incentive:,.0f} 🏆</h2>
+                    <p style="color: red;"><strong>Note:</strong> This is a preliminary estimate. The final amount may differ based on actual calculations.</p>
+
                 </div>
             """, unsafe_allow_html=True)
 
